@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epheme</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;1,400;1,700&family=Snippet&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'core/css/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+
+</head>
+<body>
+  <main>
+    <nav>
+      <ul>
+        <li><a href="{% url 'epheme_app:index' %}">Home</a></li>
+        {% for c in category_list %}
+        <li> <a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
+        {% endfor %}
+        
+        <!-- <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">Categories</a>
+          <div class="dropdown-content">
+            <a href="#">Films</a>
+            <a href="#">Evenements</a>
+            <a href="#">Autres</a>
+          </div>
+        </li> -->
+        <li><a href="{% url 'epheme_app:contact' %}">Contact</a></li>
+      </ul>
+    </nav>
+    <ul id="first-category" class="items-container">
+      {% for video in video_list %}
+        <li class="item">
+          <a href="/video/{{ video.id }}">
+          <img class="visual-resource" aria-describedby="{{video.id}}-title" src="{{ video.thumbnail_url }}" alt="{{ video.title }}">
+          <section class="info">
+            <label id="{{video.id}}-title" for="{{video.id}}">{{video.title}}</label>
+          </section>
+        </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>
