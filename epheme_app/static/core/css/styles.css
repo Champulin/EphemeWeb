@@ -4,6 +4,8 @@
   --color-03: #9a8c98;
   --color-04: #f2e9e4;
 
+  --max-width: 1024px;
+
   font-family: 'Nunito Sans', sans-serif;
   color: var(--color-04);
 }
@@ -26,7 +28,7 @@ h1 {
 
 main {
   width: 100%;
-  max-width: 1024px;
+  max-width: var(--max-width);
 
   margin-top: 1rem;
   margin-bottom: 1rem;

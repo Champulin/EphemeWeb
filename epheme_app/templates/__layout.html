@@ -15,7 +15,6 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'core/css/reset.css' %}">
   <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
-
 </head>
 <body>
   <nav>
@@ -36,8 +35,6 @@
       <li><a href="{% url 'epheme_app:contact' %}">Contact</a></li>
     </ul>
   </nav>
-  <main>
-    {% block content %}{% endblock %}
-  </main>
+  {% block content %}{% endblock %}
 </body>
 </html>

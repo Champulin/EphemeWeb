@@ -1,15 +1,18 @@
 {% extends "__layout.html" %}
 {% block content %}
-<ul id="first-category" class="items-container">
-  {% for video in video_list %}
-    <li class="item">
-      <a href="{% url 'epheme_app:video_player' id=video.id %}">
-      <img class="visual-resource" aria-describedby="{{video.id}}-title" src="{{ video.thumbnail_url }}" alt="{{ video.title }}">
-      <section class="info">
-        <label id="{{video.id}}-title" for="{{video.id}}">{{video.title}}</label>
-      </section>
-    </a>
-    </li>
-  {% endfor %}
-</ul>
+<main>
+  <ul id="first-category" class="items-container">
+    {% for video in video_list %}
+      <li class="item">
+        <a href="{% url 'epheme_app:video_player' pk=video.id %}">
+        <img class="visual-resource" aria-describedby="{{video.id}}-title" src="{{ video.thumbnail_url }}" alt="{{ video.title }}">
+        <section class="info">
+          <label id="{{video.id}}-title" for="{{video.id}}">{{video.title}}</label>
+        </section>
+      </a>
+      </li>
+    {% endfor %}
+  </ul>
+</main>
+
 {% endblock %}

@@ -1,23 +1,30 @@
 {% extends "__layout.html" %}
 
 {% block content %}
-<h1>
-  {{ video.title }}
-</h1>
-<div class="player-container">
-  <div id="ytplayer"/>
-</div>
-<p>
-  {{ video.description }}
-</p>
+<main>
+  <h1>
+    {{ video.title }}
+  </h1>
+  <section class="player">
+    <div id="ytplayer"/>
+  </section>
+  <p>
+    {{ video.description }}
+  </p>
+</main>
 
 <script>
+  function youtube_parser(url){
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    var match = url.match(regExp);
+    return (match&&match[7].length==11)? match[7] : false;
+  }
   // Load the IFrame Player API code asynchronously.
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/player_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  var id = new URL("{{ video.video_url }}").searchParams.get("v");
+  var id = youtube_parser("{{ video.video_url }}");
   
 
   // Replace the 'ytplayer' element with an <iframe> and
@@ -34,7 +41,7 @@
 </script>
 
 <style>
-  .player-container {
+  #ytplayer {
     aspect-ratio: 16/9;
   }
 
