@@ -5,7 +5,7 @@ from django.views import generic
 # Create your views here.
 class VideoListView(generic.ListView):
     model = Video
-    template_name = 'epheme_app/index.html'
+    template_name = 'index.html'
     context_object_name = 'video_list'
     paginate_by = 10
     
@@ -19,12 +19,13 @@ class VideoListView(generic.ListView):
 
 class VideoDetailView(generic.DetailView):
     model = Video
-    template_name = 'epheme_app/video_player.html'
+    template_name = 'video_player.html'
+
 def contact(request):
-    return render(request, 'epheme_app/contact.html')
+    return render(request, 'contact.html')
 class FilterListView(generic.ListView):
     model = Video
-    template_name = 'epheme_app/index.html'
+    template_name = 'index.html'
     context_object_name = 'video_list'
     paginate_by = 10
     
