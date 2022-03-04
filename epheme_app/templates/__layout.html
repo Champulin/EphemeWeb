@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Epheme</title>
+  <title>{% block title %}Epheme{% endblock %}</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,24 +15,23 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'core/css/reset.css' %}">
   <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/dropdown.css' %}">
 </head>
 <body>
-  <nav>
+  <nav role="navigation">
     <ul>
       <li><a href="{% url 'epheme_app:index' %}">Home</a></li>
-      {% for c in category_list %}
-      <li> <a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
-      {% endfor %}
-      
-      <!-- <li class="dropdown">
-        <a href="javascript:void(0)" class="dropbtn">Categories</a>
-        <div class="dropdown-content">
-          <a href="#">Films</a>
-          <a href="#">Evenements</a>
-          <a href="#">Autres</a>
-        </div>
-      </li> -->
-      <li><a href="{% url 'epheme_app:contact' %}">Contact</a></li>
+
+      <li class="dropdown">
+        <span href="#">Categories</span>
+        <ul>
+        {% for v in video_list %}
+          <li>
+            <a href="{{v.category_name.get_absolute_url}}">{{v.category_name}}</a>
+          </li>
+        {% endfor %}
+        </ul>
+      </li>
     </ul>
   </nav>
   {% block content %}{% endblock %}

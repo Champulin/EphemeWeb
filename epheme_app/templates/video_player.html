@@ -1,17 +1,19 @@
 {% extends "__layout.html" %}
 
+{% block title %}
+  {{ video.title }}
+{% endblock %}
+
 {% block content %}
 <main>
-  <h1>
-    {{ video.title }}
-  </h1>
-  <section class="player">
-    {% if video.source_name == 'youtube'%}
-    <div id="ytplayer">
-    </div>
-    {% else %}
-    <div id="{name}"></div>
-    {% endif %}
+  <section class="content">
+    <h1>
+      {{ video.title }}
+    </h1>
+  
+    <section class="video-container {{video.source_name}}">
+      <section id="video-player"></section>
+    </section>
   </section>
 
   <section class="info">
@@ -35,63 +37,74 @@
 
 <script>
   const url = "{{ video.video_url }}";
-  const source = "{{ source_name }}";
+</script>
 
-  function playOnYoutube() {
-    function getYoutubeId(url){
-      const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-      const match = url.match(regExp);
-      return (match&&match[7].length==11)? match[7] : false;
-    }
-    const id = getYoutubeId(url);
-    function onYouTubePlayerAPIReady() {
-      player = new YT.Player('ytplayer', {
-        height: '100%',
-        width: '100%',
-        videoId: id,
-        playerVars: { 'modestbranding': 1, 'rel': 0, 'controls': 1 },
-      });
-    }
+{% if video.source_name.name == "youtube" %}
+<script>
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  function getYoutubeId(url){
+    const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match&&match[7].length==11)? match[7] : false;
   }
+  const id = getYoutubeId(url);
 
-  function playOnVimeo() {
-    const options = {
-      url: url
-    };
-
-    const player = new Vimeo.Player('video-player', options);
-
-    player.on('play');
-  }
-
-  switch (source) {
-    case "youtube":
-      playOnYoutube();
-      break;
-    case "vimeo":
-      playOnVimeo();
-    default:
-      break;
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('video-player', {
+      height: '100%',
+      width: '100%',
+      videoId: id,
+      playerVars: { 'modestbranding': 1, 'rel': 0, 'controls': 1 },
+    });
   }
 </script>
+{% endif %}
+
+{% if video.source_name.name == "vimeo" %}
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+  const player = new Vimeo.Player('video-player', {
+    url: url,
+    responsive: true,
+  });
+
+  player.on('play', function() {});
+  </script>
+</script>
+{% endif %}
 
 
 <style>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    justify-content: center;
+  }
+
+  .video-container {
+    background: black;
+  }
+
   #video-player {
     aspect-ratio: 16/9;
+    height: 100%;
   }
 
-  main {
-    flex-grow: 1;
-    display: flex;
-    justify-self: center;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-  }
-
-  .main {
-    height: 100vh;
+  .video-container.vimeo > #video-player > * {
+    height:100%;
   }
 </style>
 {% endblock %}
