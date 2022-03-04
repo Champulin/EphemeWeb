@@ -6,11 +6,29 @@
     {{ video.title }}
   </h1>
   <section class="player">
-    <div id="ytplayer"/>
+    {% if video.source_name == 'youtube'%}
+    <div id="ytplayer">
+    </div>
+    {% else %}
+    <div id="{name}"></div>
   </section>
-  <p>
-    {{ video.description }}
-  </p>
+  <section class="info">
+    <h2>
+      {{video.author}}
+    </h2>
+    <p>
+      {{ video.description }}
+    </p>
+    <p>
+      <a href="{{video.category_name.get_absolute_url}}">{{video.category_name}}</a>
+    </p>
+    <p>
+      {{video.date}}
+    </p>
+    <p>
+      {{video.tags}}
+    </p> 
+  </section>
 </main>
 
 <script>
@@ -39,6 +57,7 @@
     });
   }
 </script>
+
 
 <style>
   #ytplayer {

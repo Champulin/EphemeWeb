@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from .models import Video, Category
 from django.views import generic
 
@@ -20,9 +19,15 @@ class VideoListView(generic.ListView):
 class VideoDetailView(generic.DetailView):
     model = Video
     template_name = 'video_player.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category_list'] = Category.objects.all()
+        return context
 
-def contact(request):
-    return render(request, 'contact.html')
+class ContactDetailView(generic.TemplateView):
+    model = Category
+    template_name = 'contact.html'
+    context_object_name = 'category_list'
 class FilterListView(generic.ListView):
     model = Video
     template_name = 'index.html'

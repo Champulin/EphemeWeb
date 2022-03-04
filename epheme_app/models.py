@@ -1,6 +1,5 @@
 from django.db import models
 from django.urls import reverse
-import uuid
 # Create your models here.
 class Video(models.Model):
     # Fields
@@ -11,6 +10,7 @@ class Video(models.Model):
     thumbnail_url = models.CharField(max_length=200, help_text='Url du thumbnail (gif)', verbose_name='Thumbnail URL')
     date = models.DateField()
     tags = models.CharField(max_length=200, help_text='Tags du video (séparés par des virgules)')
+    source_name = models.ForeignKey('Source', on_delete=models.CASCADE, help_text='Youtube ou Vimeo',verbose_name='Source')
     category_name = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, help_text='choisi la catégorie du video', verbose_name='Catégorie')
     # Metadata
     class Meta:
@@ -39,3 +39,8 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('epheme_app:category', kwargs={'slug': self.slug})
 
+class Source(models.Model):
+    #Fields
+    name = models.CharField(max_length=200,db_index=True, help_text='Youtube ou Vimeo', verbose_name='Nom du site')
+    def __str__(self):
+        return f'{self.name}'
