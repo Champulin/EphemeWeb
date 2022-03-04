@@ -10,7 +10,7 @@ class Video(models.Model):
     thumbnail_url = models.CharField(max_length=200, help_text='Url du thumbnail (gif)', verbose_name='Thumbnail URL')
     date = models.DateField()
     tags = models.CharField(max_length=200, help_text='Tags du video (séparés par des virgules)')
-    source_name = models.ForeignKey('Source', on_delete=models.CASCADE, help_text='Youtube ou Vimeo',verbose_name='Source')
+    source_name = models.ForeignKey('Source', on_delete=models.CASCADE,null=True, help_text='Youtube ou Vimeo',verbose_name='Source')
     category_name = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, help_text='choisi la catégorie du video', verbose_name='Catégorie')
     # Metadata
     class Meta:

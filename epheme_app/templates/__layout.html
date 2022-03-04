@@ -20,8 +20,8 @@
   <nav>
     <ul>
       <li><a href="{% url 'epheme_app:index' %}">Home</a></li>
-      {% for c in category_list %}
-      <li> <a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
+      {% for v in video_list %}
+      <li> <a href="{{v.category_name.get_absolute_url}}">{{video.category_name}}</a></li>
       {% endfor %}
       
       <!-- <li class="dropdown">
