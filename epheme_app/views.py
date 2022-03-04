@@ -24,7 +24,7 @@ class VideoDetailView(generic.DetailView):
         context['category_list'] = Category.objects.all()
         return context
 
-class ContactDetailView(generic.TemplateView):
+class ContactListView(generic.ListView):
     model = Category
     template_name = 'contact.html'
     context_object_name = 'category_list'
