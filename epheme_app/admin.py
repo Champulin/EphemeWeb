@@ -11,7 +11,7 @@ class VideoAdmin(admin.ModelAdmin):
     ordering = ('-date',)
     fieldsets = (
         (None, {
-            'fields': ('title', 'author', 'description', 'video_url', 'thumbnail_url', 'date', 'tags', 'category_name')
+            'fields': ('title', 'author', 'description', 'video_url', 'source_name', 'thumbnail_url', 'date', 'tags', 'category_name')
         }),
     )
 class CategoryAdmin(admin.ModelAdmin):
@@ -30,7 +30,7 @@ class SourceAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     fieldsets = (
         (None, {
-            'fields': ('name','slug')
+            'fields': ('name',)
         }),
     )
 admin.site.register(Source, SourceAdmin)
