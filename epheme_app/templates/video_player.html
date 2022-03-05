@@ -6,32 +6,29 @@
 
 {% block content %}
 <main>
-  <section class="content">
-    <h1>
-      {{ video.title }}
-    </h1>
-  
+  <section class="content">  
     <section class="video-container {{video.source_name}}">
       <section id="video-player"></section>
     </section>
   </section>
 
   <section class="info">
-    <h2>
-      {{video.author}}
-    </h2>
+    <section>
+      <h1>
+        {{ video.title }}
+      </h1>
+      <h2>
+        {{ video.author }}
+      </h2>
+      <section class="meta">
+        <a id="category" href="{{video.category_name.get_absolute_url}}">{{video.category_name}}</a>
+        <span id="date">{{video.date}}</span>
+        <span id="tags">{{video.tags}}</span>
+      </section>
+    </section>
     <p>
       {{ video.description }}
     </p>
-    <p>
-      <a href="{{video.category_name.get_absolute_url}}">{{video.category_name}}</a>
-    </p>
-    <p>
-      {{video.date}}
-    </p>
-    <p>
-      {{video.tags}}
-    </p> 
   </section>
 </main>
 
@@ -86,6 +83,15 @@
     gap: 1rem;
   }
 
+  p {
+    font-weight: 600;
+  }
+
+  #video-player {
+    aspect-ratio: 16/9;
+    height: 100%;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -98,13 +104,26 @@
     background: black;
   }
 
-  #video-player {
-    aspect-ratio: 16/9;
-    height: 100%;
-  }
-
   .video-container.vimeo > #video-player > * {
     height:100%;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
+  }
+
+  .meta {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .meta > *:not(:last-child):after {
+    display: inline-block;
+    padding-left: 0.5rem;
+    content: "-";
   }
 </style>
 {% endblock %}
