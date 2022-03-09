@@ -27,8 +27,9 @@ class Category(models.Model):
     # Fields
     name = models.CharField(max_length=200,db_index=True, help_text='Nom de la catégorie', verbose_name='Nom du Catégorie')
     slug = models.SlugField(unique=True)
+    #add a field called alphabetic_order
     class Meta:
-        ordering = ['name']
+        ordering = ['id']
         verbose_name = 'Catégorie'
         verbose_name_plural = 'Catégories'
 

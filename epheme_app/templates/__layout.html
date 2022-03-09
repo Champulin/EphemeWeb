@@ -9,8 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;1,400;1,700;1,900&family=Snippet&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Dosis:wght@200&display=swap" rel="stylesheet">
   <!-- Styles -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'core/css/reset.css' %}">
@@ -26,13 +25,15 @@
       <li class="dropdown">
         <span href="#">Categories</span>
         <ul>
-        {% for v in video_list %}
+        {% for c in category_list %}
           <li>
-            <a href="{{v.category_name.get_absolute_url}}">{{v.category_name}}</a>
+            <a href="{{c.get_absolute_url}}">{{c.name}}</a>
           </li>
         {% endfor %}
-        </ul>
-      </li>
+      </ul>
+    </li>
+      <li><a href="{% url 'epheme_app:contact' %}">Contact</a></li>
+      
     </ul>
   </nav>
   {% block content %}{% endblock %}

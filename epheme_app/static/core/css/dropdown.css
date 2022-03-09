@@ -1,26 +1,29 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  
 }
 
 .dropdown ul {
   display: none;
   position: absolute;
   z-index: 1;
-
-  background-color: var(--color-02);
+  background-color: var(--color-05);
   box-shadow: 0px 0px 8px 4px rgba(255, 255, 255, 0.2);
-
+  
   padding: 0.75rem 1rem;
-  min-width: 160px;
+  min-width: 100px;
   border-radius: 8px;
 }
-
+.dropdown ul li {
+  font-weight: bold;
+  color: var(--color-04);
+}
 .dropdown li:not(:first-child) {
   margin-top: 0.5rem;
 }
 
 .dropdown:hover ul {
-  color: black;
+  color: rgb(104, 41, 41);
   display: block;
 }

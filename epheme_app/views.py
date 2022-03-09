@@ -19,6 +19,8 @@ class VideoListView(generic.ListView):
 class VideoDetailView(generic.DetailView):
     model = Video
     template_name = 'video_player.html'
+
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['category_list'] = Category.objects.all()
