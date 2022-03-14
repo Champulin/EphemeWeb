@@ -1,38 +1,4 @@
-{% extends "__layout.html" %}
-{% block content %}
-<main>
-  <h1>
-  Ipeheme
-  </h1>
-  <h2>
-  Videographer 
-  </h2>
-  <br /><br />
-  <ul id="first-category" class="items-container">
-    {% for video in video_list %}
-    <li class="item">
-      <section class="video-container {{video.source_name}}">  
-        <a href="{% url 'epheme_app:video_player' pk=video.id %}">
-          <img class="visual-resource" aria-describedby="{{video.id}}-title" src="{{ video.thumbnail_url }}" alt="{{ video.title }}">
-          <section class="info">
-            <label id="{{video.id}}-title" for="{{video.id}}">{{video.title}}</label>
-          </section>
-      </section>
-      <section>
-        <label class="petit">
-          {{video.title}}
-        </label>
-      </section>
-      </a>
-    </li>
-    <!-- {% if is_mobile %}
-    {% endif %} -->
-    
-    {% endfor %}
-  </ul>
-</main>
 
-<style>
   .items-container {
     background-color: transparent;
     list-style: none;
@@ -136,6 +102,3 @@
     visibility: visible;
     }
   }
-</style>
-
-{% endblock %}

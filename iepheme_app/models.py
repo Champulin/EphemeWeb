@@ -38,7 +38,7 @@ class Category(models.Model):
         return f'{self.name}'
     
     def get_absolute_url(self):
-        return reverse('epheme_app:category', kwargs={'slug': self.slug})
+        return reverse('iepheme_app:category', kwargs={'slug': self.slug})
 
 class Source(models.Model):
     #Fields

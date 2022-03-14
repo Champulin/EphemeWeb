@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
                 ('thumbnail_url', models.CharField(help_text='Url du thumbnail (gif)', max_length=200, verbose_name='Thumbnail URL')),
                 ('date', models.DateField()),
                 ('tags', models.CharField(help_text='Tags du video (séparés par des virgules)', max_length=200)),
-                ('category_name', models.ForeignKey(help_text='choisi la catégorie du video', null=True, on_delete=django.db.models.deletion.SET_NULL, to='epheme_app.category', verbose_name='Catégorie')),
+                ('category_name', models.ForeignKey(help_text='choisi la catégorie du video', null=True, on_delete=django.db.models.deletion.SET_NULL, to='iepheme_app.category', verbose_name='Catégorie')),
             ],
             options={
                 'verbose_name': 'Video',

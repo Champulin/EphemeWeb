@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('epheme_app', '0001_initial'),
+        ('iepheme_app', '0001_initial'),
     ]
 
     operations = [
@@ -21,6 +21,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='video',
             name='source_name',
-            field=models.ForeignKey(help_text='Youtube ou Vimeo', null=True, on_delete=django.db.models.deletion.CASCADE, to='epheme_app.source', verbose_name='Source'),
+            field=models.ForeignKey(help_text='Youtube ou Vimeo', null=True, on_delete=django.db.models.deletion.CASCADE, to='iepheme_app.source', verbose_name='Source'),
         ),
     ]

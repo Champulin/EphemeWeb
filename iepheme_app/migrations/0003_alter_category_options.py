@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('epheme_app', '0002_source_video_source_name'),
+        ('iepheme_app', '0002_source_video_source_name'),
     ]
 
     operations = [

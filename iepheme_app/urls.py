@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-app_name = 'epheme_app'
+app_name = 'iepheme_app'
 urlpatterns = [
     path('', views.VideoListView.as_view(), name='index'),
     path('category/<slug:slug>/', views.FilterListView.as_view(), name='category'),

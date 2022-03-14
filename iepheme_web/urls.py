@@ -1,4 +1,4 @@
-"""epheme_web URL Configuration
+"""iepheme_web URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -21,6 +21,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('epheme_app/', include('epheme_app.urls')),
-    path('', RedirectView.as_view(url='epheme_app/', permanent=True)),
+    path('iepheme_app/', include('iepheme_app.urls')),
+    path('', RedirectView.as_view(url='iepheme_app/', permanent=True)),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

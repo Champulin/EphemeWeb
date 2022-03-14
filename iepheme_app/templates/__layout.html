@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Epheme{% endblock %}</title>
+  <title>{% block title %}Iepheme{% endblock %}</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +15,13 @@
   <link rel="stylesheet" href="{% static 'core/css/reset.css' %}">
   <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
   <link rel="stylesheet" href="{% static 'core/css/dropdown.css' %}">
+  {% block styles %}{% endblock %}
 </head>
 <body>
   <nav role="navigation">
     <ul>
       <li>
-        <a href="{% url 'epheme_app:index' %}">Home</a>
+        <a href="{% url 'iepheme_app:index' %}">Home</a>
       </li>
       <li class="dropdown">
         <span href="#">Categories</span>
@@ -32,7 +33,7 @@
         {% endfor %}
       </ul>
     </li>
-      <li><a href="{% url 'epheme_app:contact' %}">Contact</a></li>
+      <li><a href="{% url 'iepheme_app:contact' %}">Contact</a></li>
       
     </ul>
   </nav>
