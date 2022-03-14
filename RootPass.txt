@@ -1,1 +1,7 @@
 Root password Droplet Ipheme: lr835Zbc6Eam
+ALTER ROLE champu SET client_encoding TO 'utf8';
+ALTER ROLE champu SET default_transaction_isolation TO 'read committed';
+ALTER ROLE champu SET timezone TO 'UTC';
+
+GRANT ALL PRIVILEGES ON DATABASE myproject TO champu;
+
