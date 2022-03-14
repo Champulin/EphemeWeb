@@ -1,4 +1,5 @@
-Root password Droplet Ipheme: lr835Zbc6Eam
+Root password Droplet Ipheme: 
+gitHub token: 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
 ALTER ROLE champu SET client_encoding TO 'utf8';
 ALTER ROLE champu SET default_transaction_isolation TO 'read committed';
 ALTER ROLE champu SET timezone TO 'UTC';
