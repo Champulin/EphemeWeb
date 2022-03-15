@@ -28,6 +28,7 @@ h1, h2, h3, h4, h5 {
   font-weight: 900;
   color: white;
   font-style: italic;
+  white-space: pre-line;
 }
 
 h1 {
@@ -84,9 +85,6 @@ nav > ul > a:hover {
   text-decoration: underline;
 }
 
-.telephone{
-  opacity: 0;
-}
 @media (min-width: 1px) and (max-width: 767px) {
   body {
     padding: 0.5rem;

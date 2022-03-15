@@ -10,10 +10,12 @@
   
     cursor: pointer;
   }
-  .petit{
-    visibility: collapse;
+  .tablet-mode{
+    display: none;
   }
-
+  .mobile-mode{
+    display: none;
+  }
   
   .item {
     position: relative;
@@ -81,9 +83,16 @@
     opacity: 0;
 
     }
-    .petit{
-    visibility: visible;
+ 
+    .item:hover .visual-resource {
+    filter: none;
     }
+    .mobile-mode{
+      display:flex;
+    }
+   /* !
+    CHANGE HOW IT LOOKS LABEL TO HAVE SOME SENSE COMPARED TO H1
+   */ 
   }
   
   
@@ -98,7 +107,11 @@
     .item:hover .info {
       opacity: 0;
     }
-    .petit{
-    visibility: visible;
+    .tablet-mode{
+    display:flex;
+    }
+    .item:hover .visual-resource {
+      filter: none;
     }
   }
+ 

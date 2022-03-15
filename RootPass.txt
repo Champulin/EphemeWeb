@@ -1,8 +1,10 @@
-Root password Droplet Ipheme: 
-gitHub token: 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
+Root password Droplet Ipheme: lr835Zbc6Eam
+Token : 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
 ALTER ROLE champu SET client_encoding TO 'utf8';
 ALTER ROLE champu SET default_transaction_isolation TO 'read committed';
 ALTER ROLE champu SET timezone TO 'UTC';
 
 GRANT ALL PRIVILEGES ON DATABASE myproject TO champu;
+
+cat ~/.ssh/id_rsa.pub | ssh champu@167.71.43.137 "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys"
 

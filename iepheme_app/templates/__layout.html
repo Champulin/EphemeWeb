@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Iepheme{% endblock %}</title>
+  <title>{% block title %}Iepheme{% endblock title%}</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,8 @@
   <link rel="stylesheet" href="{% static 'core/css/reset.css' %}">
   <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
   <link rel="stylesheet" href="{% static 'core/css/dropdown.css' %}">
-  {% block styles %}{% endblock %}
+  {% block styles %}
+  {% endblock styles%}
 </head>
 <body>
   <nav role="navigation">
@@ -37,6 +38,6 @@
       
     </ul>
   </nav>
-  {% block content %}{% endblock %}
+  {% block content %}{% endblock content%}
 </body>
 </html>

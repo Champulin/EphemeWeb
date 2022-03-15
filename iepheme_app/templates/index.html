@@ -1,7 +1,8 @@
 {% extends "__layout.html" %}
+{% load static %}
 {% block styles %}
 <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
-{% endblock  %}
+{% endblock styles %}
 {% block content %}
 <main>
   <h1>
@@ -14,24 +15,30 @@
   <ul id="first-category" class="items-container">
     {% for video in video_list %}
     <li class="item">
-      <section class="video-container {{video.source_name}}">  
-        <a href="{% url 'iepheme_app:video_player' pk=video.id %}">
-          <img class="visual-resource" aria-describedby="{{video.id}}-title" src="{{ video.thumbnail_url }}" alt="{{ video.title }}">
-          <section class="info">
-            <label id="{{video.id}}-title" for="{{video.id}}">{{video.title}}</label>
-          </section>
+        <section class="video-container {{video.source_name}}">  
+          <a href="{% url 'iepheme_app:video_player' pk=video.id %}">
+            <img class="visual-resource" aria-describedby="{{video.id}}-title" src="{{ video.thumbnail_url }}" alt="{{ video.title }}">
+            <section class="info">
+              <label id="{{video.id}}-title" for="{{video.id}}">{{video.title}}</label>
+            </section>
+          </a>
+        </section>
+      </li>
+      <section class="tablet-mode">
+        <section>
+          <h2>
+            {{video.title}}
+            <label>{{video.author}}</label>
+          </h2>
+          <a id="category" href="{{video.category_name.get_absolute_url}}">{{video.category_name}}</a>
+        </section>
       </section>
-      <section>
-        <label class="petit"> 
-          {{video.title}}
-        </label>
+      <section class="mobile-mode">
+        <h1>
+        {{video.title}}
+        </h1>
       </section>
-      </a>
-    </li>
     {% endfor %}
   </ul>
 </main>
-
-
-
-{% endblock %}
+{% endblock content%}
