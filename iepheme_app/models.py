@@ -28,8 +28,9 @@ class Category(models.Model):
     name = models.CharField(max_length=200,db_index=True, help_text='Nom de la catégorie', verbose_name='Nom du Catégorie')
     slug = models.SlugField(unique=True)
     #add a field called alphabetic_order
+    alphabetic_order = models.CharField(max_length=200,default='a-' ,help_text='ordre dans lequel les videos vont apparaitre "a-1"', verbose_name='Ordre alphabétique')
     class Meta:
-        ordering = ['id']
+        ordering = ['alphabetic_order']
         verbose_name = 'Catégorie'
         verbose_name_plural = 'Catégories'
 

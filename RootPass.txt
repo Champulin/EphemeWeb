@@ -8,3 +8,5 @@ GRANT ALL PRIVILEGES ON DATABASE myproject TO champu;
 
 cat ~/.ssh/id_rsa.pub | ssh champu@167.71.43.137 "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys"
 
+sudo ln -s /etc/nginx/sites-available/iepheme /etc/nginx/sites-enabled
+

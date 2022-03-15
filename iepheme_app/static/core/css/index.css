@@ -73,7 +73,10 @@
     ##Device = Most of the Smartphones Mobiles (Portrait)
     ##Screen = B/w 320px to 479px
   */
-
+  .video-container a{
+    color: white;
+    font-weight: bold;
+  }
   @media (min-width: 1px) and (max-width: 767px){
     .items-container {
       grid-template-columns: 1fr;
@@ -83,16 +86,21 @@
     opacity: 0;
 
     }
- 
+    .mobile-mode h1{
+      font-size: 1.7rem;
+    }
     .item:hover .visual-resource {
     filter: none;
     }
     .mobile-mode{
       display:flex;
+      justify-content: center;
     }
-   /* !
-    CHANGE HOW IT LOOKS LABEL TO HAVE SOME SENSE COMPARED TO H1
-   */ 
+    .mobile-mode h1 label{
+      display:flex;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
   }
   
   
@@ -112,6 +120,16 @@
     }
     .item:hover .visual-resource {
       filter: none;
+    }
+    .tablet-mode h1{
+      font-size: 1.5rem;
+      padding: 0.2rem;
+    }
+    label{
+      font-size: 1.2rem;
+    }
+    a{
+      font-size: 1rem;
     }
   }
  

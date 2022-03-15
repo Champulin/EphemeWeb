@@ -4,6 +4,7 @@
   --color-03: #ef233c;
   --color-04: #d6e2f5;
   --color-05: #181e27;
+  --color-06: #0940f3c9;
 
   --max-width: 80%;
 
@@ -32,20 +33,24 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size:  5rem;
+  font-size: clamp(2.5rem, 5vw, 5rem);
 }
 
 h2 {
-  font-size: 1.7rem;
+  font-size: clamp(1.5rem, 2.5rem, 3.5rem);
 }
 p {
   white-space: pre-line;
   font-family: 'Dosis', sans-serif;
+  color: var(--color-04);
 }
 main a {
   color: var(--color-04);
   cursor: pointer;
   text-decoration: underline;
+}
+#category:hover{
+  color: var(--color-06);
 }
 
 main {
@@ -55,16 +60,28 @@ main {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-
-nav {
-  font-size: 1rem;
+.meta{
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.navbar {
+  font-size: 1rem;
   font-weight: bold;
   width: 100%;
   font-family: 'Dosis', sans-serif;
 }
-
+.navbar-brand  {
+  font-size: 3rem;
+}
+.navbar-collapse{
+  justify-content: flex-end;
+}
+a:hover{
+  cursor:pointer;
+}
+/* 
 nav ul {
   display: inline-flex;
   flex-wrap: wrap;
@@ -83,6 +100,9 @@ nav > ul > li {
 nav > ul > li:hover,
 nav > ul > a:hover {
   text-decoration: underline;
+} */
+#tags{
+  visibility: hidden;
 }
 
 @media (min-width: 1px) and (max-width: 767px) {
@@ -93,7 +113,7 @@ nav > ul > a:hover {
     font-size: 2rem;
   }
   h2{
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   p {
     font-size: 15px;
@@ -108,8 +128,8 @@ nav > ul > a:hover {
   }
   h2{
     font-size: 1.5rem;
-  }
-  p {
+  } 
+   p {
     font-size: 13px;
   }
 }

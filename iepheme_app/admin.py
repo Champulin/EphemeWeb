@@ -20,7 +20,7 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     fieldsets = (
         (None, {
-            'fields': ('name','slug')
+            'fields': ('name','slug','alphabetic_order')
         }),
     )
     prepopulated_fields = {'slug': ('name',)}
