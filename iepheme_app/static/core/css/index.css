@@ -24,8 +24,12 @@
     aspect-ratio: 16/9;
   
     overflow: hidden;
+
+    border-style: solid;
+    border-color: red; 
   }
-  
+
+
   .item .info {
     position: absolute;
     width: 100%;
@@ -110,7 +114,7 @@
   */
   @media (min-width: 768px) and (max-width: 1024px) {
     .items-container {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 3fr 2fr;
     }
     .item:hover .info {
       opacity: 0;

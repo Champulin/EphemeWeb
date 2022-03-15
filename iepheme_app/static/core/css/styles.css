@@ -56,7 +56,6 @@ main a {
 main {
   width: 100%;
   max-width: var(--max-width);
-
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -81,26 +80,7 @@ main {
 a:hover{
   cursor:pointer;
 }
-/* 
-nav ul {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 1rem;
 
-}
-
-nav > ul > li {
-  padding: 0.5rem;
-  border-radius: 8px;
-  cursor: pointer;
-
-  transition: all 100ms ease-in-out;
-}
-
-nav > ul > li:hover,
-nav > ul > a:hover {
-  text-decoration: underline;
-} */
 #tags{
   visibility: hidden;
 }
