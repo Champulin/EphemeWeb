@@ -10,7 +10,7 @@
 
 .dropdown-menu a{
   font-weight: bold;
-  color: var(--color-04);
+  
 }
 
 .dropdown-menu a:not(:first-child) {

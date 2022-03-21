@@ -1,6 +1,6 @@
 {% extends "__layout.html" %}
 {% block content %}
-<section>
+<section class="contact-logo">
     <img src="https://i.imgur.com/bxcpUCj.png" alt="backgroundLogo">
 </section>
 <h1>
@@ -18,10 +18,32 @@
     <a href="https://www.instagram.com/i.p.e.h.e.m.e/">
         <img class="visual-resource" src="http://pngimg.com/uploads/instagram/instagram_PNG10.png" alt="instagram" height="50" width="50"> </a>
 </section>
+   
 <style>
+
     h1, h2{
         display: flex;
         justify-content: center;
+    }
+    @media (min-width: 768px) and (max-width: 1024px) {
+        h1{
+            font-size: 2rem;
+        }      
+        contact-logo{
+            margin-top: 35px;
+        }
+    }
+    @media (min-width: 1px) and (max-width: 767px) {
+        h1{
+            font-size: 1.5rem;
+        }
+        contact-logo{
+            margin-top: 50px;
+        }
+        .navbar-brand{
+            height: 100px;
+            width: 250px;
+        }
     }
 </style>
 {% endblock %}

@@ -26,10 +26,15 @@
     overflow: hidden;
 
     border-style: solid;
-    border-color: red; 
+ 
   }
-
-
+  .pagination{
+    color: rgba(29, 4, 4, 0.739);
+  }
+  .page{
+    color:var(--color-04);
+    font-family: 'Dosis', sans-serif;;
+  }
   .item .info {
     position: absolute;
     width: 100%;
@@ -56,7 +61,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    color: var(--color-04);
+    
     left: 0;
     top: 0;
   

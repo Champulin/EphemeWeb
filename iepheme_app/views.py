@@ -6,7 +6,7 @@ class VideoListView(generic.ListView):
     model = Video
     template_name = 'index.html'
     context_object_name = 'video_list'
-    paginate_by = 10
+    paginate_by = 1
     
     def get_queryset(self):
         return Video.objects.order_by('-date')

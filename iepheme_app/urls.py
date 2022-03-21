@@ -6,4 +6,6 @@ urlpatterns = [
     path('category/<slug:slug>/', views.FilterListView.as_view(), name='category'),
     path('video/<int:pk>/', views.VideoDetailView.as_view(), name='video_player'),
     path('contact', views.ContactListView.as_view(), name='contact'),
+    path('?page=<int:page>', views.VideoListView.as_view(), name='index'),
+    path('category/<slug:slug>/?page=<int:page>', views.FilterListView.as_view(), name='category'),
 ]

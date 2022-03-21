@@ -7,8 +7,9 @@
   --color-06: #0940f3c9;
 
   --max-width: 80%;
-
-  font-family: 'Barlow Condensed', sans-serif;
+  --font-Barlow: 'Barlow Condensed', sans-serif;
+  --font-Dosis: 'Dosis', sans-serif;
+  font-family: var(--font-Barlow);
   color: var(--color-04);
 }
 
@@ -21,17 +22,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family:var(--font-Barlow);
+  color: var(--color-04);
 }
-
-
-
 h1, h2, h3, h4, h5 {
   font-weight: 900;
-  color: white;
   font-style: italic;
   white-space: pre-line;
 }
-
+a#category{
+  font-family: var(--font-Dosis);
+}
 h1 {
   font-size: clamp(2.5rem, 5vw, 5rem);
 }
@@ -41,18 +42,50 @@ h2 {
 }
 p {
   white-space: pre-line;
-  font-family: 'Dosis', sans-serif;
-  color: var(--color-04);
+  font-family: var(--font-Dosis);
+  
 }
 main a {
-  color: var(--color-04);
   cursor: pointer;
+  color: var(--color-04);
+  text-decoration: none;
+  font-size: clamp(1.5rem, 2.5rem, 3.5rem);
+}
+a:hover{
+  color: #0d6efd;
   text-decoration: underline;
 }
 #category:hover{
   color: var(--color-06);
 }
+.pagination > li > a
+{
+    background-color: var(--color-02);
+    color: var(--color-04);
+}
 
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #5a5a5a;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181 !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181;
+}
 main {
   width: 100%;
   max-width: var(--max-width);
@@ -66,23 +99,30 @@ main {
   margin-bottom: 1rem;
 }
 .navbar {
-  font-size: 1rem;
+  font-size: clamp(1rem, 1.7rem, 2.5rem);
   font-weight: bold;
   width: 100%;
-  font-family: 'Dosis', sans-serif;
+  font-family: var(--font-Dosis)
 }
-.navbar-brand  {
-  font-size: 3rem;
+#text{
+
+  font-weight: bolder;
+  color: white;
+  font-style: italic;
 }
-.navbar-collapse{
-  justify-content: flex-end;
-}
+
 a:hover{
   cursor:pointer;
 }
 
 #tags{
   visibility: hidden;
+}
+.navbar-brand{
+  height: auto;
+  width: auto;
+  max-height: 72px;
+  max-width: 250px;
 }
 
 @media (min-width: 1px) and (max-width: 767px) {
@@ -97,6 +137,9 @@ a:hover{
   }
   p {
     font-size: 15px;
+  }
+  li .item{
+    min-width: 500px;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
