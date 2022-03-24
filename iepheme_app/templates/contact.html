@@ -1,7 +1,10 @@
 {% extends "__layout.html" %}
 {% block content %}
+{% load static %}
+<br>
+<br>
 <section class="contact-logo">
-    <img src="https://i.imgur.com/bxcpUCj.png" alt="backgroundLogo">
+    <img src="{% static 'core/img/contact1.jpg' %}" alt="backgroundLogo"  >
 </section>
 <h1>
     paulcharaf@hotmail.com
@@ -14,13 +17,14 @@
     </h2>
     <br>
 <section>
-
-    <a href="https://www.instagram.com/i.p.e.h.e.m.e/">
+    <a href="https://www.instagram.com/i.p.e.h.e.m.e/" target="_blank" rel="noopener noreferrer">
         <img class="visual-resource" src="http://pngimg.com/uploads/instagram/instagram_PNG10.png" alt="instagram" height="50" width="50"> </a>
 </section>
    
 <style>
-
+    .contact-logo img {
+        max-height: 400px;
+    }
     h1, h2{
         display: flex;
         justify-content: center;

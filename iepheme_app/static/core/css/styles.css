@@ -58,34 +58,8 @@ a:hover{
 #category:hover{
   color: var(--color-06);
 }
-.pagination > li > a
-{
-    background-color: var(--color-02);
-    color: var(--color-04);
-}
 
-.pagination > li > a:focus,
-.pagination > li > a:hover,
-.pagination > li > span:focus,
-.pagination > li > span:hover
-{
-    color: #5a5a5a;
-    background-color: #eee;
-    border-color: #ddd;
-}
 
-.pagination > .active > a
-{
-    color: white;
-    background-color: #5A4181 !Important;
-    border: solid 1px #5A4181 !Important;
-}
-
-.pagination > .active > a:hover
-{
-    background-color: #5A4181 !Important;
-    border: solid 1px #5A4181;
-}
 main {
   width: 100%;
   max-width: var(--max-width);
@@ -103,6 +77,9 @@ main {
   font-weight: bold;
   width: 100%;
   font-family: var(--font-Dosis)
+}
+.fake-visual-resource{
+  visibility: hidden;
 }
 #text{
 
