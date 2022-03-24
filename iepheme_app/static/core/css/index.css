@@ -129,9 +129,11 @@
       display:flex;
       justify-content: center;
       text-align: center;
+      margin-bottom: 3.5rem;
     }
     .mobile-mode h1{
       font-size: 1.7rem;
+      line-height: 0.9;
     }
     .mobile-mode h1 label{
       font-size: 1.3rem;
