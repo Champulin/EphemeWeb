@@ -32,7 +32,7 @@ class ContactListView(generic.ListView):
     context_object_name = 'category_list'
 class FilterListView(generic.ListView):
     model = Video
-    template_name = 'index.html'
+    template_name = 'filtered_video.html'
     context_object_name = 'video_list'
     paginate_by = 10
     

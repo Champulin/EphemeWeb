@@ -8,6 +8,7 @@
 {% endblock %}
 {% block content %}
 <main>
+</br></br>
   <section class="content">  
     <section class="video-container {{video.source_name}}">
       <section id="video-player"></section>
@@ -22,9 +23,7 @@
       <h2>
         {{ video.author }}
       </h2>
-      <p>
-        ----------------------------
-      </p>
+    <section class="description-content">
       <br />
       <p>
         {{ video.description }}
@@ -32,12 +31,13 @@
       <br />
       <section class="meta">
         <a id="category" href="{{video.category_name.get_absolute_url}}">{{video.category_name}}</a>
-        <span id="tags">{{video.tags}}</span>
       </section>
+      <p id="tags">{{video.tags}}</p>
+    </section>
     </section>
   </section>
 </main>
-
+{% block scripts %} 
 <script>
   const url = "{{ video.video_url }}";
 </script>
@@ -80,4 +80,5 @@
   </script>
 </script>
 {% endif %}
+{% endblock scripts%}
 {% endblock %}

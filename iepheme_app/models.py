@@ -9,6 +9,7 @@ class Video(models.Model):
     video_url = models.CharField(max_length=200, help_text='Url du video ', verbose_name='Video URL')
     thumbnail_url = models.CharField(max_length=200, help_text='Url du thumbnail (gif)', verbose_name='Thumbnail URL')
     date = models.DateField()
+    home = models.BooleanField(default=False)
     tags = models.CharField(max_length=200, help_text='Tags du video (séparés par des virgules)')
     source_name = models.ForeignKey('Source', on_delete=models.CASCADE,null=True, help_text='Youtube ou Vimeo',verbose_name='Source')
     category_name = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, help_text='choisi la catégorie du video', verbose_name='Catégorie')
@@ -27,9 +28,11 @@ class Category(models.Model):
     # Fields
     name = models.CharField(max_length=200,db_index=True, help_text='Nom de la catégorie', verbose_name='Nom du Catégorie')
     slug = models.SlugField(unique=True)
+    description = models.TextField(max_length=2000,default=' ',null=True,help_text='Description pour la catégorie', verbose_name='Description')
     #add a field called alphabetic_order
+    alphabetic_order = models.CharField(max_length=200,default='a-' ,help_text='ordre dans lequel les videos vont apparaitre "a-1"', verbose_name='Ordre alphabétique')
     class Meta:
-        ordering = ['id']
+        ordering = ['alphabetic_order']
         verbose_name = 'Catégorie'
         verbose_name_plural = 'Catégories'
 

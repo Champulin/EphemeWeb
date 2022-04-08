@@ -8,3 +8,44 @@ GRANT ALL PRIVILEGES ON DATABASE myproject TO champu;
 
 cat ~/.ssh/id_rsa.pub | ssh champu@167.71.43.137 "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys"
 
+Database name = iepheme_db
+Username:password = admin:PM2022_admin
+Superuser= admin:iepheme2022
+
+
+
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=champu
+Group=www-data
+WorkingDirectory=/home/champu/iepheme
+ExecStart=/home/champu/iepheme/iepheme_env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/champu/iepheme.sock iepheme_web/iepheme.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+sudo nano /etc/nginx/sites-available/Iepheme
+
+
+
+
+server {
+    listen 80;
+    server_name 167.71.43.137;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/champu/iepheme;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/champu/iepheme.sock;
+    }
+}
+sudo ln -s /etc/nginx/sites-available/iepheme /etc/nginx/sites-enabled
+
+sudo nano /etc/nginx/sites-available/iepheme

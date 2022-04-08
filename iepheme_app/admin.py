@@ -11,16 +11,16 @@ class VideoAdmin(admin.ModelAdmin):
     ordering = ('-date',)
     fieldsets = (
         (None, {
-            'fields': ('title', 'author', 'description', 'video_url', 'source_name', 'thumbnail_url', 'date', 'tags', 'category_name')
+            'fields': ('title', 'author', 'description', 'video_url', 'source_name', 'thumbnail_url', 'date', 'tags', 'category_name','home')
         }),
     )
 class CategoryAdmin(admin.ModelAdmin):
     pass
-    list_display = ('name','id')
+    list_display = ('name','id','description')
     search_fields = ('name',)
     fieldsets = (
         (None, {
-            'fields': ('name','slug')
+            'fields': ('name','slug','alphabetic_order','description')
         }),
     )
     prepopulated_fields = {'slug': ('name',)}
